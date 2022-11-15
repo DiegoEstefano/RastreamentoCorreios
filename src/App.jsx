@@ -13,6 +13,7 @@ export default function Home() {
     setRastreio(data);
   };
 
+  //TODO: Retirar essa constante de dentro do useEffect
   useEffect(() => {
     const API = `https://api.linketrack.com/track/json?user=${user}&token=${token}&codigo=${codigoR}`;
     getRastreio(API);
