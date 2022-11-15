@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./App.css";
 import Card from "./components/Card";
+import { Body, Title, divCard } from "./styles";
 
 export default function App() {
   const [codigos, setCodigos] = useState([]);
@@ -12,20 +12,19 @@ export default function App() {
   }
   console.log(codigos);
   return (
-    <div className="corpo">
-      <>
-        <div>
-          <input
-            type="text"
-            onChange={(e) => setListRastreio(e.target.value)}
-          />
-          <button onClick={getCodes}>Rastreio</button>
-        </div>
+    <Body>
+      <Title>Digite o codigo de ratreio</Title>
 
+      <div>
+        <input type="text" onChange={(e) => setListRastreio(e.target.value)} />
+        <button onClick={getCodes}>Rastreio</button>
+      </div>
+
+      <divCard>
         {codigos.map((codigo, idx) => (
           <Card codigo={codigo} key={idx} />
         ))}
-      </>
-    </div>
+      </divCard>
+    </Body>
   );
 }
