@@ -1,33 +1,30 @@
-import { useState, useEffect } from "react";
-const user = import.meta.env.VITE_USER;
-const token = import.meta.env.VITE_TOKEN;
-import "./App.css";
-let codigoR = ["qj604344714br"];
+import { useState } from "react";
+import Card from "./components/Card";
+import { Body, Title, divCard } from "./styles";
 
-export default function Home() {
-  const [rastreio, setRastreio] = useState([]);
+export default function App() {
+  const [codigos, setCodigos] = useState([]);
+  const [listRastreio, setListRastreio] = useState([]);
 
-  const getRastreio = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setRastreio(data);
-  };
-
-  //TODO: Retirar essa constante de dentro do useEffect
-  useEffect(() => {
-    const API = `https://api.linketrack.com/track/json?user=${user}&token=${token}&codigo=${codigoR}`;
-    getRastreio(API);
-  }, []);
-
+  function getCodes() {
+    const codes = listRastreio.split(",");
+    setCodigos(codes);
+  }
+  console.log(codigos);
   return (
-    <div className="corpo">
-      {rastreio && (
-        <>
-          {console.log(rastreio.codigo)}
-          <input type="text" />
-          <button>Rastreio</button>
-        </>
-      )}
-    </div>
+    <Body>
+      <Title>Digite o codigo de ratreio</Title>
+
+      <div>
+        <input type="text" onChange={(e) => setListRastreio(e.target.value)} />
+        <button onClick={getCodes}>Rastreio</button>
+      </div>
+
+      <divCard>
+        {codigos.map((codigo, idx) => (
+          <Card codigo={codigo} key={idx} />
+        ))}
+      </divCard>
+    </Body>
   );
 }
