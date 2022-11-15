@@ -2,14 +2,14 @@
   font-size: 2rem;
 }
 
-
 .corpo {
+  padding-top:1rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 90vw;
   height: 500px;
 }
 
 input {
-    border-radius:2px;
+  border-radius: 2px;
 }
