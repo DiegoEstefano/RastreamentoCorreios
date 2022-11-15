@@ -13,4 +13,6 @@ export const Body = styled.div`
   padding-top: 4rem;
 `;
 
-export default divCard = styled.div``;
+export default divCard = styled.div`
+  padding-top: 1rem;
+`;
