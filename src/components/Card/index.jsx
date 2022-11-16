@@ -4,7 +4,6 @@ import getRastreio from "../../services/getRastreio";
 export default function Card({ codigo }) {
   const [rastreio, setRastreio] = useState([]);
 
-  
   useEffect(() => {
     async function getData() {
       const result = await getRastreio(codigo);
@@ -14,10 +13,13 @@ export default function Card({ codigo }) {
   }, []);
 
   return (
-    <div className="corpo">
+    <div>
+      <p>Número de Pedido</p>
       {rastreio && (
         <>
-          <p>{rastreio.codigo}</p>
+          {rastreio.length === 0 && <p>Carregando...</p>}
+          <h3>{rastreio.codigo}</h3>
+         
         </>
       )}
     </div>
