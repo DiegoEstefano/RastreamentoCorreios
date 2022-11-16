@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import getRastreio from "../../services/getRastreio";
+import { useState, useEffect } from 'react';
+import getRastreio from '../../services/getRastreio';
 
 export default function Card({ codigo }) {
   const [rastreio, setRastreio] = useState([]);
@@ -12,14 +12,21 @@ export default function Card({ codigo }) {
     getData();
   }, []);
 
+  console.log(rastreio);
   return (
     <div>
       <p>Número de Pedido</p>
       {rastreio && (
         <>
-          {rastreio.length === 0 && <p>Carregando...</p>}
           <h3>{rastreio.codigo}</h3>
-         
+          {rastreio.eventos.map((evento) => (
+            <>
+            <p>{evento.status}</p>
+            <p>{evento.local}</p>
+            <p>{evento.data}</p>
+            <p>{evento.hora}</p>
+            </>
+          ))}
         </>
       )}
     </div>
