@@ -1,0 +1,18 @@
+{
+  "name": "rastreio-backend",
+  "version": "1.0.0",
+  "main": "src/server.ts",
+  "license": "MIT",
+  "scripts": {
+    "db": "prisma db push && prisma generate",
+    "dev": "ts-node-dev src/server.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.6.1",
+    "@types/express": "^4.17.14",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "prisma": "^4.6.1",
+    "typescript": "^4.9.3"
+  }
+}
