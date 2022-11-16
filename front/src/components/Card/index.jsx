@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import getRastreio from "../../services/getRastreio";
-import { DivCard, TrackNumber } from "../../styles";
-import box from "../../assets/box.png";
+import { useState, useEffect } from 'react';
+import getRastreio from '../../services/getRastreio';
+import { DivCard, TrackNumber } from '../../styles';
+import box from '../../assets/box.png';
 export default function Card({ codigo }) {
   const [rastreio, setRastreio] = useState();
 
@@ -12,7 +12,6 @@ export default function Card({ codigo }) {
     }
     getData();
   }, []);
-  console.log(rastreio);
   return (
     <DivCard>
       {rastreio && (
