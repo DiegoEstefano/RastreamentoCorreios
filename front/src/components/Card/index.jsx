@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import getRastreio from '../../services/getRastreio';
-
+import { DivCard, TrackNumber } from '../../styles';
+import box from '../../assets/box.png';
 export default function Card({ codigo }) {
-  const [rastreio, setRastreio] = useState([]);
+  const [rastreio, setRastreio] = useState();
 
   useEffect(() => {
     async function getData() {
@@ -11,24 +12,24 @@ export default function Card({ codigo }) {
     }
     getData();
   }, []);
-
-  console.log(rastreio);
   return (
-    <div>
-      <p>Número de Pedido</p>
+    <DivCard>
       {rastreio && (
         <>
-          <h3>{rastreio.codigo}</h3>
-          {rastreio.eventos.map((evento) => (
-            <>
-            <p>{evento.status}</p>
-            <p>{evento.local}</p>
-            <p>{evento.data}</p>
-            <p>{evento.hora}</p>
-            </>
+          <>
+            <TrackNumber>
+              Número de Pedido <img src={box} />: {rastreio.codigo}
+            </TrackNumber>
+          </>
+          {rastreio.eventos.map((evento, i) => (
+            <div key={i}>
+              <p>{evento.status}</p>
+              <p>{evento.local}</p>
+              <p>{evento.data}</p>
+            </div>
           ))}
         </>
       )}
-    </div>
+    </DivCard>
   );
 }
