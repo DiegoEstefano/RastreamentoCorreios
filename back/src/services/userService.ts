@@ -1,12 +1,16 @@
-import warnings from '../constants/warnings';
-import prisma from './prismaClient';
+import warnings from "../constants/warnings";
+import bcrypt from "bcrypt";
+import prisma from "./prismaClient";
+import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../../utils/env";
 
 const createUser = async (phoneNumber: string, email: string) => {
+  const hashMail = bcrypt.hashSync(email, 10);
   try {
-    const user = await prisma.users.create({
+    await prisma.users.create({
       data: {
         phoneNumber,
-        email,
+        email: hashMail,
       },
     });
     return { status: 201, message: warnings.userCreated };
@@ -19,4 +23,21 @@ const createUser = async (phoneNumber: string, email: string) => {
   }
 };
 
-export { createUser };
+const logIn = async (phoneNumber: string, email: string) => {
+  const user = await prisma.users.findUniqueOrThrow({
+    where: {
+      phoneNumber,
+    },
+  });
+
+  const unhashMail = bcrypt.compareSync(email, user.email);
+
+  if (unhashMail) {
+    const token = jwt.sign({ userId: user.id }, JWT_SECRET!);
+    return { status: 200, message: warnings.welcome, token };
+  }
+
+  return { status: 401, message: warnings.unauthorized };
+};
+
+export { createUser, logIn };

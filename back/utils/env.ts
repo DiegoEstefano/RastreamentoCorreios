@@ -1,5 +1,5 @@
-import 'dotenv/config';
+import "dotenv/config";
 
-const { PORT, BASEURL } = process.env;
+const { PORT, BASEURL, JWT_SECRET } = process.env;
 
-export { PORT, BASEURL };
+export { PORT, BASEURL, JWT_SECRET };
