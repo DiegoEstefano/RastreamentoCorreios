@@ -9,8 +9,8 @@ const router = express.Router();
 
 router
   .get('/encomendas/:userId', getAllPackages)
-  .get('/adicionar-encomenda', create)
-  .get('/editar-encomenda', edit)
-  .get('/deletar-encomenda', delet);
+  .post('/adicionar-encomenda', create)
+  .put('/editar-encomenda', edit)
+  .delete('/deletar-encomenda', delet);
 
 export default router;
