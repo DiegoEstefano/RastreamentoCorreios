@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import getRastreio from '../../services/getRastreio';
-import { DivCard, TrackNumber } from '../../styles';
-import box from '../../assets/box.png';
+import { useState, useEffect } from "react";
+import getRastreio from "../../services/getRastreio";
+import { DivCard, TrackNumber } from "../Card/style";
+import box from "../../assets/box.png";
 export default function Card({ codigo }) {
   const [rastreio, setRastreio] = useState();
 
@@ -12,13 +12,14 @@ export default function Card({ codigo }) {
     }
     getData();
   }, []);
+
   return (
     <DivCard>
       {rastreio && (
         <>
           <>
             <TrackNumber>
-              Número de Pedido <img src={box} />: {rastreio.codigo}
+              Número de Pedido <img src={box} /> : {rastreio.codigo}
             </TrackNumber>
           </>
           {rastreio.eventos.map((evento, i) => (
@@ -32,4 +33,6 @@ export default function Card({ codigo }) {
       )}
     </DivCard>
   );
+console.log(rastreio.status)
+
 }
