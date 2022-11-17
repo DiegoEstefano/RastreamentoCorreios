@@ -1,5 +1,5 @@
 import 'dotenv/config';
 
-const { PORT } = process.env;
+const { PORT, BASEURL } = process.env;
 
-export { PORT };
+export { PORT, BASEURL };

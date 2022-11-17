@@ -1,7 +1,9 @@
-import warnings from '../constants/warnings';
-import prisma from './prismaClient';
+import warnings from "../constants/warnings";
+import getActualState from "./getActualState";
+import prisma from "./prismaClient";
 
 const createPackage = async (userId: number, code: string) => {
+  const lastState = await getActualState(code);
   try {
     const newPackage = await prisma.packages.create({
       data: {
@@ -9,6 +11,7 @@ const createPackage = async (userId: number, code: string) => {
           connect: { id: userId },
         },
         code,
+        lastState,
       },
     });
     return { status: 201, message: warnings.packageCreated, error: null };
@@ -24,6 +27,7 @@ const getPackages = async (userId: number) => {
         userId,
       },
     });
+    if (!packages.length) throw new Error(warnings.packagesNotFound);
     return {
       status: 200,
       message: warnings.returnPackages,

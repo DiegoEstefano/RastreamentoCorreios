@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { createPackage, getPackages } from '../services/packageService';
+import { Request, Response } from "express";
+import { createPackage, getPackages } from "../services/packageService";
 
 const getAllPackages = async (req: Request, res: Response) => {
   const { userId } = req.params;
