@@ -7,6 +7,6 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/usuario', userRoutes);
-app.use('/api/pacotes', packageRoutes);
+app.use('/api/encomendas', packageRoutes);
 
 app.listen(PORT, () => console.log(`running on ${PORT}`));
