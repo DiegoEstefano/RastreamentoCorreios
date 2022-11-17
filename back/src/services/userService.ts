@@ -9,7 +9,7 @@ const createUser = async (phoneNumber: string, email: string) => {
         email,
       },
     });
-    return { status: 201, message: warnings.userCreated, error: null };
+    return { status: 201, message: warnings.userCreated };
   } catch (error) {
     return {
       status: 400,

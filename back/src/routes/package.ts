@@ -8,7 +8,7 @@ import {
 const router = express.Router();
 
 router
-  .get('/encomendas', getAllPackages)
+  .get('/encomendas/:userId', getAllPackages)
   .get('/adicionar-encomenda', create)
   .get('/editar-encomenda', edit)
   .get('/deletar-encomenda', delet);

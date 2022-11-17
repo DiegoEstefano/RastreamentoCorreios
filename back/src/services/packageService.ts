@@ -17,4 +17,21 @@ const createPackage = async (userId: number, code: string) => {
   }
 };
 
-export { createPackage };
+const getPackages = async (userId: number) => {
+  try {
+    const packages = await prisma.packages.findMany({
+      where: {
+        userId,
+      },
+    });
+    return {
+      status: 200,
+      message: warnings.returnPackages,
+      data: packages,
+    };
+  } catch (error) {
+    return { status: 401, message: warnings.packagesNotFound, error };
+  }
+};
+
+export { createPackage, getPackages };
