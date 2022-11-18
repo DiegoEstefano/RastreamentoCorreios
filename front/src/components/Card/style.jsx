@@ -10,8 +10,12 @@ export const DivCard = styled.div`
 export const TrackNumber = styled.h1`
   font-size: 1rem;
   padding-bottom: 1rem;
+  cursor: pointer;
   img {
     width: 20px;
+  }
+  span {
+    float: right;
   }
 `;
 export const EventCard = styled.div`
@@ -27,5 +31,10 @@ export const EventCard = styled.div`
   h4{
     font-size: 0.9rem;
     padding-bottom: 0.625rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  span {
+    float: right;
   }
 `;
