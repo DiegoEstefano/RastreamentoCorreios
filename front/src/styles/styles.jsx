@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-  max-width: 90vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -26,20 +25,28 @@ export const DivButton = styled.div`
 
   button {
     width: 20rem;
-    height: 1.6rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     background-color: #dfdfdf;
-    border-width: 1px;
-    border-radius: 3px;
+    border-width: 1.2px;
+    border-radius: 1px 6px 6px 6px;
     cursor: pointer;
-  }
-  img {
-    width: 1.2rem;
-  }
-  p {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #51c7b7;
+    :hover {
+      background-color: #51c7b7;
+      transition: 0.2s;
+      padding: 0.2rem;
+      p {
+        color: black;
+      }
+    }
+    img {
+      width: 1.4rem;
+    }
+    p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #51c7b7;
+    }
   }
 `;
