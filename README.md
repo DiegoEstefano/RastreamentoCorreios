@@ -1,2 +1,2 @@
 # RastreamentoCorreios
-Rastreamento de encomendas utilizando React para desenvolvimento do front consumindo API gratuita LinkTrack para busca codigos de rastreio.
+Rastreamento de encomendas utilizando React. API utilizada foi a LinkTrack para busca de codigos de rastreio.
