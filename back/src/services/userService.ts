@@ -3,7 +3,7 @@ import prisma from './prismaClient';
 
 const createUser = async (phoneNumber: string, email: string) => {
   try {
-    const user = await prisma.users.create({
+    await prisma.users.create({
       data: {
         phoneNumber,
         email,

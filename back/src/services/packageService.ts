@@ -3,7 +3,7 @@ import prisma from './prismaClient';
 
 const createPackage = async (userId: number, code: string) => {
   try {
-    const newPackage = await prisma.packages.create({
+    await prisma.packages.create({
       data: {
         User: {
           connect: { id: userId },
