@@ -3,13 +3,13 @@ import { PORT } from '../utils/env';
 import userRoutes from './routes/user';
 import packageRoutes from './routes/package';
 import { updateAllPackages } from './services/updateAllPackages';
-import Amqp from './services/message/Amqp';
+import login from './middlewares/login';
 const app = express();
 
 app.use(express.json());
 
 app.use('/api/usuario', userRoutes);
-app.use('/api/pacotes', packageRoutes);
+app.use('/api/encomendas', login, packageRoutes);
 
 updateAllPackages()
 

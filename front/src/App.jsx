@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { BsArrowLeftRight } from "react-icons/bs";
 import Card from "./components/Card";
-import { Body, Title, DivButton } from "./styles";
+import { Body, DivButton, TopBar } from "./styles/styles";
+import Title from "./components/Title/Title";
+import box from "../../front/src/assets/box.png";
 
 export default function App() {
   const [codigos, setCodigos] = useState([]);
@@ -13,11 +14,9 @@ export default function App() {
   }
   return (
     <Body>
-      <Title>Diego&Track</Title>
+      <Title />
+      <p>Digite o seu código de rastreio:</p>
       <DivButton>
-        <div>
-          <p>Digite o seu código de rastreio:</p>
-        </div>
         <input
           placeholder="A12345678BR"
           type="text"
@@ -25,7 +24,7 @@ export default function App() {
         />
         <>
           <button onClick={getCodes}>
-            <div>Rastrear</div> <BsArrowLeftRight />
+            <p>Rastrear</p> <img src={box} />
           </button>
         </>
       </DivButton>

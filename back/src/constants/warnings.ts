@@ -1,5 +1,7 @@
 const warnings = {
   userCreated: 'Usuário criado com sucesso!',
+  unauthorized: 'Credenciais incorretas ou usuario inexistente',
+  welcome: 'Autenticado com sucesso!',
   errorOnCreateUser: 'Erro ao criar usuário!',
   packageCreated: 'Pacote criado com sucesso!',
   errorOnCreatePackage: 'Erro ao criar pacote.',

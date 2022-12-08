@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 4rem;
-`;
-
 export const Body = styled.div`
-  max-width: 90vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -15,9 +9,12 @@ export const Body = styled.div`
   padding-top: 4rem;
 `;
 
+export const TopBar = styled.div``;
+
 export const DivButton = styled.div`
   display: flex;
   flex-direction: column;
+
   input {
     padding: 5px 5px;
     width: 20rem;
@@ -28,27 +25,28 @@ export const DivButton = styled.div`
 
   button {
     width: 20rem;
-    height: 1.6rem;
+    height: 2rem;
     display: flex;
     align-items: center;
+    background-color: #dfdfdf;
+    border-width: 1.2px;
+    border-radius: 1px 6px 6px 6px;
+    cursor: pointer;
+    :hover {
+      background-color: #51c7b7;
+      transition: 0.2s;
+      padding: 0.2rem;
+      p {
+        color: black;
+      }
+    }
+    img {
+      width: 1.4rem;
+    }
+    p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #51c7b7;
+    }
   }
-  p {
-    font-size: 0.8rem;
-    padding-bottom: 0.5rem;
-  }
-`;
-export const DivCard = styled.div`
-  width: 90vw;
-  margin-top: 2rem;
-  padding: 1.2rem 2rem;
-  background-color: #f5f5f5;
-
-  p {
-    font-size: 0.8rem;
-    padding-bottom: 0.5rem;
-  }
-`;
-export const TrackNumber = styled.h1`
-  font-size: 1rem;
-  padding-bottom: 1rem;
 `;
